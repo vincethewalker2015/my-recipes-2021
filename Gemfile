@@ -16,7 +16,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+# Use 'will_paginate'for page separation
+gem 'will_paginate', '3.3.0'
+# Use Carrierwave for image uploads
+gem 'carrierwave', '2.2.1'
+gem 'mini_magick', '4.11.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -52,6 +57,10 @@ end
 
 group :production do
   gem 'pg'
+  # Use Fog for Image Cloud Storage
+  gem 'fog'
+  # Use Redis as stateless d:base
+  gem 'redis', '~> 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
