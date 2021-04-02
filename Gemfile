@@ -58,7 +58,7 @@ end
 group :production do
   gem 'pg'
   # Use Fog for Image Cloud Storage
-  gem 'fog'
+  gem 'fog-aws'
   # Use Redis as stateless d:base
   gem 'redis', '~> 4.0'
 end
