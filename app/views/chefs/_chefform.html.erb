@@ -1,4 +1,4 @@
-<%= render "shared/error", obj: @chef %>  <!-- obj: @recipe this passes in this instance variable into the partial. If you want to run this in chefs - obj: @chef  -->
+<%#= render "shared/error", obj: @chef %>  <!-- obj: @recipe this passes in this instance variable into the partial. If you want to run this in chefs - obj: @chef  -->
 
 <div class="row">
    <div class="col-md-12">
@@ -41,7 +41,8 @@
      
      <div class="form-group">
        <div class="col-md-offset-2 col-md-10 ">
-         <%= f.submit(@chef.new_record? ? "Create your account" : "Update my account",  
+        <%= f.sumbit "Create your account", class: "btn btn-primary btn-lg nice_green" %>
+         <%#= f.submit(@chef.new_record? ? "Create your account" : "Update my account",  
                        class: "btn btn-primary btn-lg nice_green" ) %>
          <!--<%= link_to "All Recipes", recipes_path, class: "btn btn-primary btn-lg nice_green" %> -->
        </div>
