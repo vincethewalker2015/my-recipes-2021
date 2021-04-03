@@ -1,3 +1,23 @@
-// Place all the styles related to the Chefs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* Chef Show Page */
+
+.profImage {
+  text-align: center;
+}
+
+/* Index Page */
+
+.listing {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.chef-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  //color: #073B15;
+
+}
+
+.profile-green {
+  background-color: #073B15 !important;
+}

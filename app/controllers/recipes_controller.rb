@@ -11,8 +11,8 @@ class RecipesController < ApplicationController
   end
   
   def show
-    @comment = Comment.new
-    @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
+    # @comment = Comment.new
+    # @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
   end
   
   def new
@@ -71,7 +71,7 @@ class RecipesController < ApplicationController
   
     def recipe_params
       #params.require(:recipe).permit(:name, :description) See action below if you want to select ingredients in form as well..
-      params.require(:recipe).permit(:name, :description, :picture, ingredient_ids: [])
+      params.require(:recipe).permit(:name, :description, :picture, :thumb, ingredient_ids: [])
     end
     
     def require_user_like

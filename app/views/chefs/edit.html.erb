@@ -1,2 +1,4 @@
-<h1>Chefs#edit</h1>
-<p>Find me in app/views/chefs/edit.html.erb</p>
+<%= render "shared/page_title", title: "edit your profile" %>
+
+<%= render "shared/error", obj: @chef %>
+<%= render "chefs/chefform" %>

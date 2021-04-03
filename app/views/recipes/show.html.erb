@@ -1,2 +1,58 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<%= render "shared/page_title", title: @recipe.name %>
+
+<div class= "well col-md-8 col-md-offset-2">
+  <h4 class= "description center"><strong>Description: </strong></h4>
+  <hr />
+    <%= simple_format(@recipe.description) %>
+  <br />
+    <div class="yummy"><%= image_tag @recipe.picture.url if @recipe.picture? %></div>
+  <% if @recipe.ingredients.any? %>
+    <p><strong>Ingredients:</strong> <%= render @recipe.ingredients %></p>
+  <% end %>
+  <div class="pull-right">
+      <p class="center">
+       <em> Created by:</em>
+      </p>
+      <p class="center">
+        <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
+      </p>
+      <p class ="center">
+        <small><%= @recipe.chef.chefname.capitalize %></small>
+        <div class="pull-right"><%= time_ago_in_words(@recipe.created_at) %> ago</div>
+      </p>
+  </div>
+  <div class="recipe-actions">
+    <%= link_to "All Recipes", recipes_path, class: "btn btn-sm btn-warning nice_green" %>
+    <% if logged_in? && (current_chef == @recipe.chef || current_chef.admin?) %>
+        <%= link_to "Edit This Recipe", edit_recipe_path(@recipe), class: "btn btn-sm btn-warning nice_green"%>
+        <%= link_to "Delete This Recipe", recipe_path(@recipe), method: :delete, 
+                                                             data: {confirm: "Are you sure??"},  
+                                                             class: "btn btn-sm btn-danger"%>
+    <% end %>
+   </div>
+    
+</div>
+  <%#= render 'recipes/liking' %>
+ 
+
+<% if logged_in? %>
+  <%#= render 'comments/newcomment' %>
+<% end %>
+
+<!--
+<%# if @recipe.comments.count > 0 %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>Comments: <%#= @recipe.comments.count %></h4>
+        <div id="messages">
+          <%#= render partial: 'comments/comments', object: @comments %>
+        </div>
+    </div>
+  </div>
+<%# else %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>No Comments Yet..</h4>
+    </div>
+  </div>
+<%# end %> -->

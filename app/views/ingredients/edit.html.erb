@@ -1,2 +1,4 @@
-<h1>Ingredients#edit</h1>
-<p>Find me in app/views/ingredients/edit.html.erb</p>
+<%= render "shared/page_title", title: "Change this ingredient '#{ @ingredient.name}' "  %>
+<%= render 'shared/error', obj: @ingredient %>
+
+<%= render 'form' %>

@@ -1,2 +1,9 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<%= render "shared/page_title", title: "All recipes" %>
+
+<div class="center">
+  <%= will_paginate %>
+</div>
+<%= render "recipes/recipe", obj: @recipes %>
+<div class="center">
+  <%= will_paginate %>
+</div>

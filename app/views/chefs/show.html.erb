@@ -1,2 +1,30 @@
-<h1>Chefs#show</h1>
-<p>Find me in app/views/chefs/show.html.erb</p>
+<%= render "shared/page_title", title: "Chef - #{@chef.chefname} 's profile" %>
+<div class="row">
+  
+  <div class="col-md-4 col-md-offset-4 profImage">
+    <%= gravatar_for @chef, size: 150 %>
+  </div>
+</div>
+<% if @chef.recipes.count != 0 %>
+  <div class="center">
+    <%= will_paginate @chef_recipes %>
+  </div>
+  
+  <h4 class="center"><%= @chef.chefname %> 's <%= @chef.recipes.count %> recipes</h4>
+  
+  <%= render "recipes/recipe", obj: @chef_recipes %> <!-- Use 2nd instance variable @chef_recipes from chef controller show -->
+  
+  <div class="center">
+      <%= will_paginate @chef_recipes %>
+  </div> 
+
+<% else %>
+  <h4 class="center"><%= @chef.chefname %>! you don't seem to have any recipes :(</h4>
+
+<% end %>
+
+
+
+
+
+
